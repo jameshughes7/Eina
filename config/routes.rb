@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'restaurants/index'
+
   get 'welcome/index'
 
   resources :restaurants
