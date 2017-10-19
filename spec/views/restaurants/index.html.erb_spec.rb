@@ -15,4 +15,9 @@ feature 'new restaurant' do
     expect(page).to have_content("Name: Jimmy's Gatsby's")
   end
 
+  scenario 'show list of restaurants' do
+    visit restaurants_path
+    expect(page).to have_content("List of restaurants")
+  end
+
 end
