@@ -17,7 +17,22 @@ feature 'new restaurant' do
 
   scenario 'show list of restaurants' do
     visit restaurants_path
+    expect(status_code).to eq (200)
+    p page.body
+
     expect(page).to have_content("List of restaurants")
+  end
+
+  scenario 'adding a New Restaurant link' do
+    visit restaurants_path
+    click_link "New restaurant"
+    expect(page).to have_current_path new_restaurant_path
+  end
+
+  scenario 'adding back link to navigate back to restaurants' do
+    visit new_restaurant_path
+    click_link "Back"
+    expect(page).to have_current_path restaurants_path
   end
 
 end
